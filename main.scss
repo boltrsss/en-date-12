@@ -1,0 +1,650 @@
+@import "./variable";
+@import "./mixins";
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  font-family: Tahoma, Verdana;
+}
+
+body {
+  background-color: map-get($base, primary);
+
+  overflow: hidden;
+
+  @include breakpoint("xmd") {
+    overflow: auto;
+  }
+}
+
+// landing page
+
+.landingPage-container {
+  height: 100vh;
+  width: 100vw;
+
+  background-color: map-get($base, primary);
+  // background-color: white;
+
+  @include breakpoint("xmd") {
+  }
+
+  .landingPage {
+    height: 100%;
+    width: 100%;
+    padding: 80px 100px;
+    @include flex(center, center, row);
+
+    background-color: white;
+
+    background-color: #ebaca2;
+    background-color: #1c1d38;
+    @include breakpoint("xmd") {
+      flex-direction: column;
+      height: auto;
+
+      padding: 20px 25px;
+    }
+
+    &-left {
+      padding-left: 40px;
+      flex: 1;
+      height: 100%;
+
+      @include flex(center, space-between, column);
+
+      row-gap: 20px;
+
+      @include breakpoint("xmd") {
+        height: unset;
+        position: absolute;
+        top: 0;
+        padding: 20px 0;
+      }
+
+      @include breakpoint("xxl") {
+        @include flex(flex-start, space-between, column);
+
+        height: 65%;
+      }
+
+      &-top {
+        padding: 0 20px;
+
+        @include flex(flex-start, center, column);
+        row-gap: map-get($space, 3);
+
+        @include breakpoint("xmd") {
+          height: 25vh;
+        }
+
+        @include breakpoint("xxl") {
+          align-self: center;
+        }
+
+        &-attention {
+          padding: 5px 15px;
+          border-radius: 20px;
+
+          color: white;
+
+          background-color: map-get($base, critical);
+          @include flex(center, flex-start, row);
+          column-gap: 15px;
+
+          p {
+            font-weight: 500;
+            font-size: 22px;
+
+            @include breakpoint("xmd") {
+              font-size: 18px;
+            }
+          }
+        }
+
+        &-paragraph {
+          font-weight: 500;
+          font-size: 20px;
+          width: 70%;
+
+          color: map-get($text, primary);
+          &-span {
+            cursor: pointer;
+            font-size: 28px;
+            line-height: 38px;
+            letter-spacing: -2px;
+            // color: map-get($base, critical);
+
+            color: map-get($base, primary);
+
+            color: #af7c7c;
+
+            font-weight: 700;
+          }
+
+          @include breakpoint("xmd") {
+            font-size: 20px;
+          }
+
+          @include breakpoint("xxl") {
+            font-size: 30px;
+          }
+        }
+      }
+
+      &-bottom {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        row-gap: 20px;
+        padding: 0 20px;
+
+        @include breakpoint("xmd") {
+          width: 100%;
+          height: 38vh;
+        }
+
+        @include breakpoint("xxl") {
+        }
+
+        &-better {
+          display: flex;
+          align-items: flex-end;
+          justify-content: flex-start;
+          flex-direction: row;
+          font-size: 20px;
+          column-gap: 10px;
+
+          @include breakpoint("xmd") {
+            width: 100%;
+            font-size: 16px;
+            // justify-content: center;
+          }
+
+          .text {
+            color: map-get($text, primary);
+
+            font-size: 24px;
+            font-weight: 600;
+
+            @include breakpoint("xmd") {
+              margin-bottom: 4px;
+            }
+          }
+
+          .logoTinder {
+            font-size: 40px;
+            line-height: 40px;
+
+            font-weight: 600;
+
+            color: #af7c7c;
+
+            @include breakpoint("xmd") {
+              font-size: 26px;
+            }
+          }
+        }
+
+        &-list {
+          @include flex(flex-start, center, column);
+          row-gap: 10px;
+
+          color: map-get($text, primary);
+
+          div {
+            @include flex(center, flex-start, row);
+            column-gap: 10px;
+            .landingPage-left-bottom-list-text {
+              font-size: 16px;
+              font-weight: 600;
+            }
+            .landingPage-text-bottom-list-asterik {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+
+      &-button {
+        width: max-content;
+        padding: 0 20px;
+
+        @include breakpoint("xmd") {
+          width: 100%;
+          align-self: center;
+        }
+
+        cursor: pointer;
+        @include flex(center, center, column);
+        row-gap: 15px;
+
+        &-zip {
+          width: max-content;
+          text-align: center;
+
+          p {
+            font-size: 20px;
+
+            color: map-get($text, primary);
+
+            font-weight: 600;
+
+            @include breakpoint("xmd") {
+              font-size: 16px;
+            }
+          }
+
+          span {
+            color: map-get($base, secondary);
+            font-weight: bold;
+
+            @include breakpoint("xmd") {
+              font-size: 18px;
+            }
+          }
+
+          @include breakpoint("xmd") {
+            font-size: 22px;
+          }
+        }
+
+        &-content {
+          @include flex(center, flex-start, row);
+          column-gap: 15px;
+
+          width: max-content;
+
+          // background: linear-gradient(
+          //   90.05deg,
+          //   #d329a6 -15.58%,
+          //   #dd1077 104.67%
+          // );
+          // background: white;
+          // background: #8366b8;
+
+          // background: #2b295c;
+
+          background-color: map-get($base, critical);
+
+          background-color: map-get($base, critical);
+
+          border-radius: 50px;
+          color: map-get($base, critical);
+          color: white;
+          padding: 10px 20px;
+          margin: 0 auto;
+
+          // border: 2px solid map-get($base, critical);
+
+          p {
+            font-weight: 600;
+          }
+        }
+      }
+    }
+
+    &-right {
+      height: 100%;
+      flex: 1;
+
+      &-image {
+        flex: 1;
+        height: 100%;
+
+        @include flex(center, center, row);
+
+        @include breakpoint("xmd") {
+          height: 35vh;
+          position: absolute;
+          top: 30%;
+          right: 0;
+        }
+
+        &-img {
+          height: 100%;
+
+          display: block;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+// for second page
+
+#secondPage {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  background-color: white;
+  background: map-get($base, primary);
+  width: 100vw;
+  flex-direction: column;
+
+  @include breakpoint("xmd") {
+    // width: 70vw;
+    justify-content: flex-start;
+    height: unset;
+  }
+}
+
+.secondPage-modal {
+  margin: 10px auto;
+  width: 40vw;
+  min-width: 300px;
+
+  border-radius: 8px;
+  background: white;
+
+  overflow: hidden;
+  border-radius: 12px;
+
+  background: rgb(227 216 216 / 7%);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.2px);
+  -webkit-backdrop-filter: blur(5.2px);
+
+  @include breakpoint("xmd") {
+    width: 90vw;
+    height: unset;
+  }
+}
+
+.secondPage-modal-top {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-bottom: 1px solid #807e7e;
+
+  justify-content: center;
+  flex-direction: row;
+
+  -moz-column-gap: 20px;
+  column-gap: 25px;
+  font-size: 23px;
+  font-weight: 600;
+
+  color: rgb(173 100 100);
+
+  @include breakpoint("xmd") {
+    column-gap: 5px;
+  }
+}
+.secondPage-modal-top-question {
+  font-size: 24px;
+
+  font-weight: 700;
+
+  color: map-get($text, critical);
+  @include breakpoint("xmd") {
+    font-size: 20px;
+  }
+}
+.secondPage-modal-top .steps {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  -moz-column-gap: 12px;
+  column-gap: 10px;
+  position: relative;
+  z-index: 5;
+}
+.secondPage-modal-top .steps .step {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: #000000;
+  font-weight: 500;
+  font-size: 14px;
+  background: rgb(217, 217, 217);
+  transition: all 0.3s ease-in-out;
+  border: none;
+  border-radius: 50%;
+}
+.secondPage-modal-top .steps .step.active {
+  background-color: #022b3a;
+  border: 2px solid white;
+  color: white;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.secondPage-modal-questions {
+  font-size: 18px;
+  font-weight: 400;
+  padding: 12px 18px;
+
+  color: map-get($text, primary);
+
+  @include breakpoint("xmd") {
+    padding: 14px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+
+  div {
+    display: flex;
+  }
+}
+.secondPage-modal-buttons {
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: stretch;
+  flex-direction: row;
+  -moz-column-gap: 10px;
+  column-gap: 10px;
+  padding: 16px 18px;
+
+  font-weight: bold;
+
+  @include breakpoint("xmd") {
+    padding: 14px;
+  }
+}
+.secondPage-modal-buttons-left {
+  flex: 1;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 8px 10px;
+  @include flex(center, center, row);
+  column-gap: 20px;
+  // background: linear-gradient(90.05deg, #f37e43 -15.58%, #eb6969 104.67%);
+  background-color: white;
+  color: rgb(185 66 135);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: backgroundColor 0.2s ease-in-out;
+  @include breakpoint("xmd") {
+    font-size: 16px;
+  }
+  &-button-continue {
+    display: none;
+    text-decoration: none;
+    color: white;
+    color: rgb(185 66 135);
+  }
+
+  div {
+    @include flex(center, center, row);
+    column-gap: 8px;
+    padding: 0px 8px;
+
+    font-weight: 600;
+  }
+  p {
+    font-weight: 600;
+  }
+}
+
+.secondPage-modal-buttons-right {
+  flex: 1;
+  padding: 8px 0;
+  text-align: center;
+  cursor: pointer;
+  color: white;
+
+  overflow: hidden;
+  background-color: white;
+  font-size: 20px;
+  border-radius: 50px;
+
+  @include breakpoint("xmd") {
+    font-size: 16px;
+  }
+
+  div {
+    font-weight: 600;
+
+    color: map-get($text, critical);
+    color: rgb(255 5 151);
+  }
+}
+
+.secondPageTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  @include breakpoint("xmd") {
+    margin-top: 30px;
+  }
+}
+.secondPageTitle-top {
+  width: 60%;
+
+  text-align: center;
+  font-size: 36px;
+
+  color: map-get($base, secondary);
+  @include breakpoint("xmd") {
+    width: 90%;
+    font-size: 18px;
+  }
+
+  p {
+    font-weight: 400;
+  }
+}
+.secondPageTitle-bottom {
+  width: 60%;
+  margin: 12px 0;
+  font-size: 20px;
+  color: map-get($text, primary);
+  font-weight: 500;
+
+  text-align: center;
+
+  color: map-get($base, critical);
+
+  color: map-get($text, secondary);
+
+  &-span {
+    cursor: pointer;
+    margin-left: 3px;
+  }
+
+  @include breakpoint("xmd") {
+    width: 90%;
+    font-size: 14px;
+  }
+}
+.secondPageTitle-bottom span {
+  font-weight: 700;
+  color: black;
+}
+
+.thirdPage-content {
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0 18px;
+
+  row-gap: 10px;
+  padding: 5px 16px;
+
+  &-choose {
+    font-size: 18px;
+
+    color: map-get($text, primary);
+
+    font-weight: 600;
+  }
+
+  &-checkBoxList {
+    @include flex(flex-start, space-between, row);
+    width: 100%;
+
+    flex-wrap: wrap;
+
+    row-gap: 10px;
+
+    p {
+      color: $white;
+
+      color: rgba(39, 5, 5, 0.925);
+
+      color: rgb(214, 199, 199);
+
+      font-size: 16px;
+      font-weight: 400;
+      margin-top: 10px;
+
+      @include breakpoint("xmd") {
+        font-size: 16px;
+        margin-top: 4px;
+      }
+    }
+
+    div {
+      width: 45%;
+      @include flex(flex-start, flex-start, row);
+      column-gap: 20px;
+      column-gap: 20px;
+      cursor: pointer;
+
+      input {
+        margin-top: 3px;
+      }
+
+      label {
+        font-size: 16px;
+
+        color: map-get($text, primary);
+
+        position: relative;
+
+        font-weight: 500;
+        top: 0;
+        @include breakpoint("xmd") {
+          font-size: 14px;
+        }
+
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.nextButtonImage {
+  height: 20px;
+  width: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */

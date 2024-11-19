@@ -1,0 +1,35 @@
+@import "./variable.scss";
+
+@mixin breakpoint($user-value) {
+  $media-map: map-get($breakpoints, $user-value);
+  @if $media-map {
+    @media (#{$media-map}) {
+      @content;
+    }
+  } @else {
+    @error "oops breakpoint value couldnt find";
+  }
+}
+
+@mixin horizontalCenter {
+  margin: 0 auto;
+}
+
+@mixin flex-stretch-start {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+@mixin flex($align-value, $justify-value, $direction) {
+  display: flex;
+  align-items: $align-value;
+  justify-content: $justify-value;
+  flex-direction: $direction;
+}
+
+@mixin dynamicFlex($align-value, $justify-value, $direction) {
+  align-items: $align-value;
+  justify-content: $justify-value;
+  flex-direction: $direction;
+}
